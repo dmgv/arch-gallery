@@ -4,5 +4,17 @@
   "main": "index.js",
   "repository": "https://dmgv@github.com/dmgv/arch-gallery.git",
   "author": "Diego M. G. Vieira <diego.menezzes@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "~4",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.1",
+    "husk": "^0.5.3",
+    "lint-staged": "^7.2.0",
+    "node-sass": "^4.9.0",
+    "prettier": "^1.13.7"
+  }
 }
