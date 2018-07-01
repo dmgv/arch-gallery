@@ -1,0 +1,8 @@
+{
+  "name": "arch-gallery",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://dmgv@github.com/dmgv/arch-gallery.git",
+  "author": "Diego M. G. Vieira <diego.menezzes@gmail.com>",
+  "license": "MIT"
+}
