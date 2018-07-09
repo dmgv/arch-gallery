@@ -1,1 +1,43 @@
 @import "base/normalize";
+
+* 
+  box-sizing: border-box
+  transition: 0.333s ease  
+
+body
+  font-family: "Open Sans"
+  font-size: 18px
+  letter-spacing: 2px
+  font-weight: 400
+  line-height: 24px
+  background-color: #ececec
+  transition: 0s
+  
+.rela-block
+  display: block
+  position: relative
+  margin: auto
+  
+.rela-inline 
+  display: inline-block
+  position: relative
+  margin: auto
+
+.floated 
+  display: inline-block
+  position: relative
+  margin: false
+  float: left
+
+.abs-center 
+  display: false
+  position: absolute
+  margin: false
+  top: 50%
+  left: 50%
+  right: false
+  bottom: false
+  -webkit-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+  text-align: center
+  width: 88%

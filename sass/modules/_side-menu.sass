@@ -1,0 +1,220 @@
+.side-menu 
+  z-index: 100
+  // display: false
+  position: fixed
+  // margin: false
+  top: 0
+  left: -360px
+  // right: false
+  bottom: 0
+  width: 360px
+  background-color: #1a1a1a
+  padding-top: 80px
+
+.menu-content
+  display: block
+  position: relative
+  margin: auto    
+
+.side-menu h3 
+  display: block
+  position: relative
+  margin: auto
+  color: #888
+  margin-bottom: 10px
+  padding-left: 30px
+  
+
+.side-menu ul 
+  display: block
+  position: relative
+  margin: auto 
+  margin-bottom: 40px
+
+.side-menu li 
+  height: 50px
+  color: #ccc
+  line-height: 50px
+  padding-left: 30px
+  transition: 0.15s ease
+  cursor: pointer
+
+.side-menu li:hover 
+  background-color: rgba(255,255,255,0.2)
+  color: #fff
+
+.social-buttons-container 
+  // display: false
+  position: absolute
+  // margin: false
+  // top: false
+  left: 0
+  right: 0
+  bottom: 0
+  height: 60px
+  text-align: center
+
+.social-button
+  display: inline-block
+  position: relative
+  margin: auto 
+  height: 55px
+  width: 55px
+  margin: 0 5px
+  background-size: cover !important
+  -webkit-transform: scale(0.75)
+          transform: scale(0.75)
+  cursor: pointer
+
+.social-button.twitter 
+  background: url("https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/twitter_online_social_media-128.png") no-repeat center
+
+.social-button.facebook 
+  background: url("https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_facebook-128.png") no-repeat center
+
+.social-button.pinterest 
+  background: url("https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_pinterest-128.png") no-repeat center
+
+.social-button.instagram 
+  background: url("https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/instagram_online_social_media_photo-128.png") no-repeat center
+
+.social-button:hover 
+  -webkit-transform: scale(1)
+  transform: scale(1)
+  transition: 0.3s cubic-bezier(0.3, 0.2, 0, 2.5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.image-grid-container 
+  margin-bottom: 40px
+  height: auto
+  width: 88%
+  max-width: 1200px
+  overflow: hidden
+
+.image-column 
+  position: relative
+  width: 33.3333333%
+  text-align: center
+
+.image-column.rows 
+  width: 100%
+
+.image-column.rows .image 
+  padding-top: 50%
+  margin-bottom: 60px
+
+.image 
+  width: 88%
+  margin-bottom: 30px
+  box-shadow: 0px 8px 25px -5px rgba(0,0,0,0.5)
+  background-repeat: no-repeat !important
+  background-position: center !important
+  background-size: cover !important
+  cursor: pointer
+
+.image.wide 
+  padding-top: 50%
+
+.image.square 
+  padding-top: 80%
+
+.image.long 
+  padding-top: 110%
+
+.image.wide:before 
+  padding-top: 25%
+
+.image.square:before 
+  padding-top: 42%
+
+.image.long:before 
+  padding-top: 59%
+
+.image:before 
+  content: "View Image"
+  display: false
+  position: absolute
+  margin: false
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  color: #fff
+  opacity: 0
+  background-color: rgba(0,0,0,0.7)
+  transition: 0.33333s ease
+
+.image:hover::before 
+  opacity: 1
+
+@media screen and (min-width: 1400px) 
+  .photo-tab 
+    padding-bottom: 45%
+    width: 45%
+  
+
+@media screen and (max-width: 629px) 
+  .photo-details 
+    width: 88%
+  
+  .photo-tab 
+    padding-bottom: 80%
+    width: 80%
+  
+  .top-container 
+    height: 220px
+  
+  .top-center-container 
+    width: 75%
+  
+  .top-search 
+    height: 50px
+    font-family: "Open Sans"
+    font-size: 32px
+    letter-spacing: 0
+    font-weight: 600
+    line-height: 50px
+  
+  .image-layout-selector 
+    height: 0
+    margin-bottom: 0
+  
+  .image-column 
+    width: 100%
+  
+  .image-column .image 
+    padding-top: 50%
+    margin-bottom: 40px
+  
+
+@media screen and (max-width: 500px) 
+  .top-search 
+    height: 36px
+    font-family: "Open Sans"
+    font-size: 20px
+    letter-spacing: 0
+    font-weight: 600
+    line-height: 36px
+   
