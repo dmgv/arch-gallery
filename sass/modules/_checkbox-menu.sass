@@ -1,62 +1,57 @@
 .checkbox-label.side-menu-label
   opacity: 1
-  // display: false
   position: absolute
-  // margin: false
   top: 20px
   right: 20px
 
 .checkbox-label.menu-label
-  // display: false
+
   position: absolute
-  // margin: false
+
   top: 20px
   left: 20px
-  // right: false
-  // bottom: false    
+  .svg-icon
+    width: 2em
+    height: 2em
 
 .checkbox-label.menu-label:after
-  content: "MENU"
-  // display: false
+  content: "ALBUMS"
   position: absolute
-  // margin: false
   top: 20%
   left: 45%
-  // right: false
-  // bottom: false  
 
 .checkbox-label.menu-label:hover:after
   left: 100%
 
 
-.black-lines
-  position: absolute
-  top: 50%
-  left: 50%
-  -webkit-transform: translate(-50%, -50%)
-  transform: translate(-50%, -50%)
-  text-align: center
-  width: 88%
-  height: 2px
-  width: 18px
-  background-color: #222
-  left: 40%
+// .black-lines
+//   position: absolute
+//   top: 50%
+//   left: 50%
+//   -webkit-transform: translate(-50%, -50%)
+//   transform: translate(-50%, -50%)
+//   text-align: center
+//   width: 88%
+//   height: 2px
+//   width: 18px
+//   background-color: #222
+//   left: 40%
 
-.black-lines:before,
-.black-lines:after 
-  content: ""
-  position: absolute
-  left: 0
-  height: 2px
-  width: 26px
-  background-color: #222
-  transition: 0.2s ease
+// .black-lines:before,
+// .black-lines:after 
+//   content: ""
+//   position: absolute
+//   left: 0
+//   height: 2px
+//   width: 26px
+//   background-color: #222
+//   transition: 0.2s ease
 
-.black-lines:before 
-  top: -7px
+// .black-lines:before 
+//   top: -7px
 
-.black-lines:after 
-  top: 7px 
+// .black-lines:after 
+//   top: 7px 
 
 #menuCheckbox:checked ~ .side-menu
   left: 0
