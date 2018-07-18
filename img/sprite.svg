@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg">
+<symbol id="brightness3" viewBox="0 0 48 48">
+    <path d="M18 4c-2.09 0-4.11.32-6 .92C20.11 7.47 26 15.05 26 24c0 8.95-5.89 16.53-14 19.08 1.89.59 3.91.92 6 .92 11.05 0 20-8.95 20-20S29.05 4 18 4z"/>
+    <path d="M0 0h48v48H0z" fill="none"/>
+
+</symbol>
+<symbol id="close" viewBox="0 0 48 48">
+    <path d="M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z"/>
+    <path d="M0 0h48v48H0z" fill="none"/>
+
+</symbol>
+<symbol id="exit" viewBox="0 0 48 48">
+    <path d="M0 0h48v48H0z" fill="none"/>
+    <path d="M20.17 31.17L23 34l10-10-10-10-2.83 2.83L25.34 22H6v4h19.34l-5.17 5.17zM38 6H10c-2.21 0-4 1.79-4 4v8h4v-8h28v28H10v-8H6v8c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4z"/>
+
+</symbol>
+<symbol id="fullscreen" viewBox="0 0 48 48">
+    <path d="M0 0h48v48H0z" fill="none"/>
+    <path d="M10 32h6v6h4V28H10v4zm6-16h-6v4h10V10h-4v6zm12 22h4v-6h6v-4H28v10zm4-22v-6h-4v10h10v-4h-6z"/>
+
+</symbol>
+<symbol id="keyboardbackspace" viewBox="0 0 48 48">
+    <path d="M0 0h48v48H0z" fill="none"/>
+    <path d="M42 22H13.66l7.17-7.17L18 12 6 24l12 12 2.83-2.83L13.66 26H42z"/>
+
+</symbol>
+<symbol id="photoalbum" viewBox="0 0 48 48">
+    <path d="M0 0h48v48H0z" fill="none"/>
+    <path d="M36 4H12C9.79 4 8 5.79 8 8v32c0 2.21 1.79 4 4 4h24c2.21 0 4-1.79 4-4V8c0-2.21-1.79-4-4-4zM12 8h10v16l-5-3-5 3V8zm0 30l6-7.71 4.29 5.15 6-7.73L36 38H12z"/>
+
+</symbol>
+<symbol id="search" viewBox="0 0 48 48">
+    <path d="M31 28h-1.59l-.55-.55C30.82 25.18 32 22.23 32 19c0-7.18-5.82-13-13-13S6 11.82 6 19s5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55V31l10 9.98L40.98 38 31 28zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
+    <path d="M0 0h48v48H0z" fill="none"/>
+
+</symbol>
+<symbol id="viewagenda" viewBox="0 0 48 48">
+    <path d="M0 0h48v48H0z" fill="none"/>
+    <path d="M40 26H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h34c1.1 0 2-.9 2-2V28c0-1.1-.9-2-2-2zm0-20H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h34c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/>
+
+</symbol>
+<symbol id="viewcolumn" viewBox="0 0 48 48">
+    <path d="M20 36h10V10H20v26zM8 36h10V10H8v26zm24-26v26h10V10H32z"/>
+    <path d="M0 0h48v48H0z" fill="none"/>
+
+</symbol></svg>

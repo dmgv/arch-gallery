@@ -8,3 +8,11 @@ rows.addEventListener("click", () => {
 columns.addEventListener("click", () => {
   columns.classList.toggle("active");
 });
+
+// const janela = () => {
+//   console.log("clicou");
+// };
+
+function janela() {
+  console.log("clicou");
+}

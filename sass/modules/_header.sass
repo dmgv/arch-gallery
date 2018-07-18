@@ -1,2 +1,95 @@
+header
+  label
+    margin: 0.5em 0.5em 0 0.5em
 
+.top-bar
+  background-color: #1a1a1a
+  height: 200px
+  text-align: center  
+  .link
+    font-size: 14px
+    letter-spacing: 0
+    top: 30px
+    text-decoration: none
+    color: #999
+
+.box
+  width: 88%
+  max-width: 1200px
+  margin: -100px auto 50px
+  background-color: #fff
+  text-align: center
+  box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.2)    
+  display: grid
+  grid-template-columns: auto 1fr 1fr auto
+  grid-template-rows: 200px
+  grid-gap: 1em
+  position: relative
+  overflow: hidden
+
+.box__slider
+  overflow: hidden
+  position: relative
+  grid-column-start: span 2
+
+.slider__01
+  position: absolute
+  left: 0
+  transition: 0.5s ease
+  width: 100%
+  height: 100%
+  h2
+    text-transform: uppercase
+    font-family: "Open Sans"
+    font-size: 24px
+    letter-spacing: 5px
+    font-weight: 600
+    line-height: 30px    
+
+.slider__02
+  position: absolute
+  left: 100%
+  transition: 0.4s ease
+  width: 100%
+  height: 100%
+  p
+    font-family: "Open Sans"
+    font-size: 16px
+    letter-spacing: 0
+    font-weight: 600
+    line-height: 20px
+    color: #2b2b2b
+  .search-text
+    text-align: left
+    font-family: "Open Sans"
+    font-size: 16px
+    letter-spacing: 0
+    font-weight: 600
+    line-height: 20px
+    color: #2b2b2b  
+
+.top-search
+  margin: 25px auto
+  font-family: "Open Sans"
+  font-size: 44px
+  letter-spacing: 0
+  font-weight: 600
+  line-height: 70px
+  height: 70px
+  width: 85%
+  padding: 0 20px
+  color: #2b2b2b
+  border: none
+  border-bottom: 2px solid #999
+
+.top-search:focus
+  outline: none
+  border-bottom: 2px solid #2b2b2b
+
+.view-options  
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-gap: 1em
+  \:nth-child(1)
+    justify-self: end
 

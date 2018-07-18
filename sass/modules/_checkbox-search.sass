@@ -1,61 +1,38 @@
 .checkbox-label.search-label
-  position: absolute
-  top: 20px
-  right: 20px
   .svg-icon
     width: 2em
     height: 2em
+//   position: absolute
+//   top: 20px
+//   right: 20px
+//   .svg-icon
+//     width: 2em
+//     height: 2em
     
 
 .checkbox-label.search-label:after
   content: "PESQUISAR"
   position: absolute
-  top: 20%
-  left: -100%
+  // top: 20%
+  // left: -100%
+  position: absolute
+  top: 7%
+  right: -15%
+  width: auto
+  height: auto
 
 .checkbox-label.search-label:hover:after
-  left: -250%
+  right: 5%
+
+// #searchCheckbox:checked ~ .top-container .top-center-container .top-text-container 
+//   left: -100%;
+
+// #searchCheckbox:checked ~ .top-container .top-center-container .top-search-container 
+//   left: 0    
 
 
+#searchCheckbox:checked ~ header .box .box__slider .slider__01
+  left: -100%  
 
-// .magnifying-glass
-//   position: absolute
-//   top: 50%
-//   left: 50%
-//   -webkit-transform: translate(-50%, -50%)
-//   transform: translate(-50%, -50%)
-//   text-align: center
-//   width: 88% 
-//   height: 32px
-//   width: 36px
-
-
-// .magnifying-glass:before 
-//   content: ""
-//   position: absolute
-//   top: 3px
-//   left: 3px
-//   height: 16px
-//   width: 16px
-//   border: 2px solid #222
-//   border-radius: 100%
-//   -webkit-transform: rotate(45deg)
-//   transform: rotate(45deg)
-
-// .magnifying-glass:after
-//   content: ""
-//   position: absolute
-//   right: 10px
-//   bottom: 3px
-//   height: 12px
-//   width: 2px
-//   background-color: #222
-//   -webkit-transform: rotate(-49deg)
-//   transform: rotate(-49deg)
-
-
-#searchCheckbox:checked ~ .top-container .top-center-container .top-text-container 
-  left: -100%;
-
-#searchCheckbox:checked ~ .top-container .top-center-container .top-search-container 
+#searchCheckbox:checked ~ header .box .box__slider .slider__02
   left: 0    

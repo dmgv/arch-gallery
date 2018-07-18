@@ -3,55 +3,34 @@
   position: absolute
   top: 20px
   right: 20px
-
-.checkbox-label.menu-label
-
-  position: absolute
-
-  top: 20px
-  left: 20px
   .svg-icon
     width: 2em
     height: 2em
+    fill: white
+
+.checkbox-label.menu-label
+  .svg-icon
+    width: 2em
+    height: 2em
+    
+
+//   position: absolute
+//   top: 20px
+//   left: 20px
+//   .svg-icon
+//     width: 2em
+//     height: 2em
 
 .checkbox-label.menu-label:after
   content: "ALBUMS"
   position: absolute
-  top: 20%
-  left: 45%
+  top: 7%
+  left: -15%
+  width: auto
+  height: auto
 
 .checkbox-label.menu-label:hover:after
-  left: 100%
-
-
-// .black-lines
-//   position: absolute
-//   top: 50%
-//   left: 50%
-//   -webkit-transform: translate(-50%, -50%)
-//   transform: translate(-50%, -50%)
-//   text-align: center
-//   width: 88%
-//   height: 2px
-//   width: 18px
-//   background-color: #222
-//   left: 40%
-
-// .black-lines:before,
-// .black-lines:after 
-//   content: ""
-//   position: absolute
-//   left: 0
-//   height: 2px
-//   width: 26px
-//   background-color: #222
-//   transition: 0.2s ease
-
-// .black-lines:before 
-//   top: -7px
-
-// .black-lines:after 
-//   top: 7px 
+  left: 5%
 
 #menuCheckbox:checked ~ .side-menu
   left: 0
