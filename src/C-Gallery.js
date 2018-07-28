@@ -10,7 +10,7 @@ function generateHTML() {
 
 export default function renderAuth(user, element) {
   const el = element;
-  const mockArray = Array.from({ length: 8 });
+  const mockArray = Array.from({ length: 16 });
 
   const markup = mockArray.map(generateHTML).join("");
   el.innerHTML = markup;
