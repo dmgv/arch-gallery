@@ -1,9 +1,11 @@
+import sprite from "../img/sprite.svg";
+
 export default function renderNav(user, element) {
   const el = element;
   const markup = `
   <label for="menuCheckbox" class="checkbox-label side-menu-label">
   <svg class="svg-icon" viewBox="0 0 20 20">
-    <use xlink:href="img/sprite.svg#close"></use>
+    <use xlink:href="${sprite}#close"></use>
   </svg>
 </label>
 <div class="menu-content">

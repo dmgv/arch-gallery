@@ -1,3 +1,5 @@
+import sprite from "../img/sprite.svg";
+
 export default function renderHeader(user, element) {
   const el = element;
   const markup = `
@@ -9,8 +11,8 @@ export default function renderHeader(user, element) {
   <div class="box">
   <label for="menuCheckbox" class="checkbox-label menu-label">
     <svg class="svg-icon" viewBox="0 0 20 20">
-      <use xlink:href="img/sprite.svg#photoalbum"></use>
-    </svg>
+        <use xlink:href="${sprite}#photoalbum"></use>
+      </svg>
   </label>
 
   <div class="box__slider">
@@ -27,7 +29,7 @@ export default function renderHeader(user, element) {
 
   <label for="searchCheckbox" class="checkbox-label search-label">
     <svg class="svg-icon" viewBox="0 0 20 20">
-      <use xlink:href="img/sprite.svg#search"></use>
+      <use xlink:href="${sprite}#search"></use>
     </svg>
   </label>
   </div>
