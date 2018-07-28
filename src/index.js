@@ -1,14 +1,17 @@
-const getRandomNum = () => Math.floor(Math.random() * 447);
+// import renderAuth from "./C-Auth";
+import renderHeader from "./C-Header";
+import renderGallery from "./C-Gallery";
+import renderNav from "./C-Nav";
+//
+//
+// const elAuth = document.querySelector("#auth");
+const elHeader = document.querySelector("header");
+const elNav = document.querySelector("nav");
+const elGallery = document.querySelector("main");
+//
+//
 
-function generateHTML() {
-  return `
-  <a href="">
-    <img src="https://source.unsplash.com/collection/762960/${getRandomNum()}" alt=""/>
-  </a>
-  `;
-}
-
-const gallery = document.querySelector("main");
-const digits = Array.from({ length: 16 });
-const html = digits.map(generateHTML).join("");
-gallery.innerHTML = html;
+// renderAuth(null, elAuth);
+renderNav(null, elNav);
+renderHeader(null, elHeader);
+renderGallery(null, elGallery);
