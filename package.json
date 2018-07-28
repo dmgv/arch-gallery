@@ -21,7 +21,10 @@
   "repository": "https://dmgv@github.com/dmgv/arch-gallery.git",
   "author": "Diego M. G. Vieira <diego.menezzes@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "firebase": "^5.3.0",
+    "uuid": "^3.3.2"
+  },
   "devDependencies": {
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
@@ -34,7 +37,6 @@
     "husk": "^0.5.3",
     "lint-staged": "^7.2.0",
     "node-sass": "^4.9.0",
-    "normalize.css": "^8.0.0",
     "parcel-bundler": "^1.9.3",
     "prettier": "^1.13.7"
   }
