@@ -1,4 +1,4 @@
-.side-menu 
+.side-menu
   z-index: 100
   position: fixed
   top: 0
@@ -11,24 +11,24 @@
 .menu-content
   display: block
   position: relative
-  margin: auto    
+  margin: auto
 
-.side-menu h3 
+.side-menu h3
   display: block
   position: relative
   margin: auto
   color: #888
   margin-bottom: 10px
   padding-left: 30px
-  
 
-.side-menu ul 
+
+.side-menu ul
   display: block
   position: relative
-  margin: auto 
+  margin: auto
   margin-bottom: 40px
 
-.side-menu li 
+.side-menu li
   height: 50px
   color: #ccc
   line-height: 50px
@@ -36,11 +36,15 @@
   transition: 0.15s ease
   cursor: pointer
 
-.side-menu li:hover 
+.side-menu li:hover
   background-color: rgba(255,255,255,0.2)
   color: #fff
 
-.social-buttons-container 
+.side-menu button
+  margin-left: 70px
+
+
+.social-buttons-container
   position: absolute
   left: 0
   right: 0
@@ -51,7 +55,7 @@
 .social-button
   display: inline-block
   position: relative
-  margin: auto 
+  margin: auto
   height: 55px
   width: 55px
   margin: 0 5px
@@ -60,19 +64,19 @@
           transform: scale(0.75)
   cursor: pointer
 
-.social-button.twitter 
+.social-button.twitter
   background: url("https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/twitter_online_social_media-128.png") no-repeat center
 
-.social-button.facebook 
+.social-button.facebook
   background: url("https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_facebook-128.png") no-repeat center
 
-.social-button.pinterest 
+.social-button.pinterest
   background: url("https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_pinterest-128.png") no-repeat center
 
-.social-button.instagram 
+.social-button.instagram
   background: url("https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/instagram_online_social_media_photo-128.png") no-repeat center
 
-.social-button:hover 
+.social-button:hover
   -webkit-transform: scale(1)
   transform: scale(1)
   transition: 0.3s cubic-bezier(0.3, 0.2, 0, 2.5)
@@ -100,26 +104,26 @@
 
 
 
-.image-grid-container 
+.image-grid-container
   margin-bottom: 40px
   height: auto
   width: 88%
   max-width: 1200px
   overflow: hidden
 
-.image-column 
+.image-column
   position: relative
   width: 33.3333333%
   text-align: center
 
-.image-column.rows 
+.image-column.rows
   width: 100%
 
-.image-column.rows .image 
+.image-column.rows .image
   padding-top: 50%
   margin-bottom: 60px
 
-.image 
+.image
   width: 88%
   margin-bottom: 30px
   box-shadow: 0px 8px 25px -5px rgba(0,0,0,0.5)
@@ -128,25 +132,25 @@
   background-size: cover !important
   cursor: pointer
 
-.image.wide 
+.image.wide
   padding-top: 50%
 
-.image.square 
+.image.square
   padding-top: 80%
 
-.image.long 
+.image.long
   padding-top: 110%
 
-.image.wide:before 
+.image.wide:before
   padding-top: 25%
 
-.image.square:before 
+.image.square:before
   padding-top: 42%
 
-.image.long:before 
+.image.long:before
   padding-top: 59%
 
-.image:before 
+.image:before
   content: "View Image"
   display: false
   position: absolute
@@ -160,55 +164,54 @@
   background-color: rgba(0,0,0,0.7)
   transition: 0.33333s ease
 
-.image:hover::before 
+.image:hover::before
   opacity: 1
 
-@media screen and (min-width: 1400px) 
-  .photo-tab 
+@media screen and (min-width: 1400px)
+  .photo-tab
     padding-bottom: 45%
     width: 45%
-  
 
-@media screen and (max-width: 629px) 
-  .photo-details 
+
+@media screen and (max-width: 629px)
+  .photo-details
     width: 88%
-  
-  .photo-tab 
+
+  .photo-tab
     padding-bottom: 80%
     width: 80%
-  
-  .top-container 
+
+  .top-container
     height: 220px
-  
-  .top-center-container 
+
+  .top-center-container
     width: 75%
-  
-  .top-search 
+
+  .top-search
     height: 50px
     font-family: "Open Sans"
     font-size: 32px
     letter-spacing: 0
     font-weight: 600
     line-height: 50px
-  
-  .image-layout-selector 
+
+  .image-layout-selector
     height: 0
     margin-bottom: 0
-  
-  .image-column 
+
+  .image-column
     width: 100%
-  
-  .image-column .image 
+
+  .image-column .image
     padding-top: 50%
     margin-bottom: 40px
-  
 
-@media screen and (max-width: 500px) 
-  .top-search 
+
+@media screen and (max-width: 500px)
+  .top-search
     height: 36px
     font-family: "Open Sans"
     font-size: 20px
     letter-spacing: 0
     font-weight: 600
     line-height: 36px
-   

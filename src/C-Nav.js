@@ -17,11 +17,12 @@ export default function renderNav(user, element) {
     <li>Brazil</li>
     <li>Cars</li>
   </ul>
-  <h3 class="list-header">Explore</h3>
+  <!-- <h3 class="list-header">Explore</h3>
   <ul class="options-list">
     <li>Popular</li>
     <li>New comers</li>
-  </ul>
+  </ul> -->
+  <button class="novoAlbum">Novo Album</button>
 </div>
   `;
   el.innerHTML = markup;
