@@ -9,8 +9,12 @@ const elAuth = document.querySelector("#auth");
 const elHeader = document.querySelector("header");
 const elNav = document.querySelector("nav");
 const elGallery = document.querySelector("main");
+const overlay = document.querySelector(".overlay");
+const overlayImage = overlay.querySelector("img");
+const overlayClose = overlay.querySelector(".close");
 
-//
+overlayClose.addEventListener("click", () => overlay.classList.remove("open"));
+
 elAuth.addEventListener("click", event => {
   if (event.target && event.target.classList.contains("signInWithGoogle")) {
     firebase.auth().signInWithPopup(googleAuthProvider);
@@ -23,7 +27,14 @@ elHeader.addEventListener("click", event => {
   }
 });
 
-//
+elGallery.addEventListener("click", event => {
+  if (event.target && event.target.tagName === "BUTTON") {
+    const { src } = event.target.parentNode.parentNode.querySelector("img");
+    overlayImage.src = src;
+    overlay.classList.add("open");
+  }
+});
+
 function renderApp(user) {
   renderHeader(user, elHeader);
   renderNav(null, elNav);

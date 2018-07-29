@@ -1,10 +1,13 @@
-const getRandomNum = () => Math.floor(Math.random() * 447);
+const getRandomNum = () => Math.floor(Math.random() * 447 + 1);
 
 function generateHTML() {
   return `
-  <a href="">
+  <div class="item">
     <img src="https://source.unsplash.com/collection/762960/${getRandomNum()}" alt=""/>
-  </a>
+    <div class="item__overlay">
+      <button>View →</button>
+    </div>
+  </div>
   `;
 }
 
