@@ -4,8 +4,17 @@ export default function renderHeader(user, element) {
   const el = element;
   const markup = `
   <div class="top-bar">
-  <a href="/" class="link">Arch Gallery</a>
-  <button class="deslogar">Deslogar</button>
+    <button class="night-mode">
+      <svg class="svg-icon" viewBox="0 0 20 20">
+        <use xlink:href="${sprite}#brightness3"></use>
+      </svg>
+    </button>
+    <a href="/" class="link">ARCH GALLERY</a>
+    <button class="deslogar">
+      <svg class="svg-icon" viewBox="0 0 20 20">
+        <use xlink:href="${sprite}#exit"></use>
+      </svg>
+    </button>
   </div>
 
   <div class="box">
@@ -18,7 +27,7 @@ export default function renderHeader(user, element) {
   <div class="box__slider">
     <div class="slider__01">
       <h2>Album Name</h2>
-      <p>Album description</p>
+      <!-- <p>Album description</p> -->
       <button class="white-text">Slide Show</button>
     </div>
     <div class="slider__02">
@@ -33,10 +42,10 @@ export default function renderHeader(user, element) {
     </svg>
   </label>
   </div>
-  <div class="view-options">
+  <!-- <div class="view-options">
   <button class="white-text">Rows</button>
   <button class="black-text">Columns</button>
-  </div>
+  </div> -->
   `;
   el.innerHTML = markup;
 }
