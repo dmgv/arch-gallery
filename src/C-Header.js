@@ -28,7 +28,7 @@ export default function renderHeader(user, element) {
     <div class="slider__01">
       <h2>Album Name</h2>
       <!-- <p>Album description</p> -->
-      <button class="white-text">Slide Show</button>
+      <button class="white-text testUnsplash">Slide Show</button>
     </div>
     <div class="slider__02">
       <p class="search-text">Search Unsplash</p>
