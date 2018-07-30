@@ -91,8 +91,8 @@ btnCreateAlbum.addEventListener("click", () => {
     const { uid } = firebase.auth().currentUser;
     createAlbum(uid, inpCreateAlbum.value);
     createAlbumPop.classList.remove("open");
-    // TODO Gerar a busca no C-Search
-    // renderSearch(inpCreateAlbum.value, elGallery)
+    renderSearch(inpCreateAlbum.value, elGallery);
+    inpCreateAlbum.value = "";
   }
 });
 
