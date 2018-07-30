@@ -16,6 +16,7 @@ export default function renderSearch(data, element) {
   const newArr = [];
 
   imgList.results.map(photos => newArr.push(photos.id));
+
   const markup = newArr.map(generateHTML).join("");
   el.innerHTML = markup;
 }

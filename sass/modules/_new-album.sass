@@ -1,0 +1,56 @@
+.create-album
+  position: fixed
+  background: rgba(0,0,0,0.8)
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  display: none
+  z-index: 2
+
+.create-album.open
+  display: grid
+
+.create-album-inner
+  width: 70%
+  height: 300px
+  position: fixed
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)
+  z-index: 3
+  background: #f4f4f4
+  display: grid
+  grid-template-columns: 1fr 1fr
+  top: 15%
+  left: 15%
+  \:nth-child(1)
+    grid-column-start: span 2
+    align-self: center
+    justify-self: center
+    background: #f4f4f4
+    margin: 25px auto
+    margin-bottom: 0px
+    font-family: "Open Sans"
+    font-size: 44px
+    letter-spacing: 0
+    font-weight: 600
+    line-height: 70px
+    height: 70px
+    width: 85%
+    padding: 0 20px
+    color: #2b2b2b
+    border: none
+    border-bottom: 2px solid #999
+    &:focus
+      outline: none
+      border-bottom: 2px solid #2b2b2b
+  \:nth-child(2)
+    align-self: center
+    justify-self: end
+    margin: 1rem
+    margin-right: -15rem
+  \:nth-child(3)
+    align-self: center
+    justify-self: end;
+    margin: 1rem
+    margin-right: 5rem
+

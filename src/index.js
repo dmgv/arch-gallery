@@ -2,9 +2,12 @@ import Unsplash, { toJson } from "unsplash-js";
 import { firebase, googleAuthProvider } from "./firebase";
 import renderAuth from "./C-Auth";
 import renderHeader from "./C-Header";
-import renderGallery from "./C-Gallery";
+// import renderGallery from "./C-Gallery";
 import renderNav from "./C-Nav";
 import renderSearch from "./C-Search";
+import renderSelected from "./C-SelectedAlbum";
+import createAlbum from "./create-album";
+import fire from "./fire";
 
 // Unsplash
 const unsplash = new Unsplash({
@@ -22,6 +25,11 @@ const elGallery = document.querySelector("main");
 const overlay = document.querySelector(".overlay");
 const overlayImage = overlay.querySelector("img");
 const overlayClose = overlay.querySelector(".close");
+const btnCreateAlbum = document.querySelector(".btnCreateAlbum");
+const inpCreateAlbum = document.querySelector(".create-album input");
+const btnCloseCreateAlbum = document.querySelector(".btnCloseCreateAlbum");
+const createAlbumPop = document.querySelector(".create-album");
+const menuCheck = document.getElementById("menuCheckbox");
 
 overlayClose.addEventListener("click", () => overlay.classList.remove("open"));
 
@@ -72,10 +80,41 @@ elGallery.addEventListener("click", event => {
   }
 });
 
+elNav.addEventListener("click", event => {
+  if (event.target && event.target.tagName === "LI") {
+    const albumId = event.target.getAttribute("data-key");
+    const user = event.target.getAttribute("data-user");
+    renderSelected(user, albumId, elGallery);
+  }
+  if (event.target && event.target.classList.contains("novoAlbum")) {
+    createAlbumPop.classList.add("open");
+    menuCheck.checked = false;
+  }
+});
+
+btnCreateAlbum.addEventListener("click", () => {
+  if (inpCreateAlbum.value) {
+    const { uid } = firebase.auth().currentUser;
+
+    createAlbum(uid, inpCreateAlbum.value);
+    createAlbumPop.classList.remove("open");
+    renderNav(uid, elNav);
+    // TODO Gerar a busca no C-Search
+    // renderSearch(inpCreateAlbum.value, elGallery)
+  }
+});
+
+btnCloseCreateAlbum.addEventListener("click", () => {
+  menuCheck.checked = true;
+  createAlbumPop.classList.remove("open");
+});
+
+//
 function renderApp(user) {
   renderHeader(user, elHeader);
-  renderNav(null, elNav);
-  renderGallery(null, elGallery);
+  renderNav(user, elNav);
+  // renderGallery(user, elGallery);
+  // renderSelected(user, elGallery);
 }
 
 firebase.auth().onAuthStateChanged(user => {
@@ -83,6 +122,7 @@ firebase.auth().onAuthStateChanged(user => {
     elAuth.innerHTML = "";
     elAuth.classList.add("hidden");
     renderApp(user.uid);
+    fire(user.uid);
   } else {
     renderAuth(null, elAuth);
     elAuth.classList.remove("hidden");
