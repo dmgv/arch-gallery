@@ -14,13 +14,6 @@ const unsplash = new Unsplash({
   callbackUrl: "urn:ietf:wg:oauth:2.0:oob",
 });
 
-// unsplash.photos
-//   .listPhotos(2, 24, "latest")
-//   .then(toJson)
-//   .then(json => {
-//     console.log(json);
-//   });
-
 // Get page elements
 const elAuth = document.querySelector("#auth");
 const elHeader = document.querySelector("header");
@@ -42,15 +35,6 @@ elHeader.addEventListener("click", event => {
   if (event.target && event.target.classList.contains("deslogar")) {
     firebase.auth().signOut();
   }
-
-  if (event.target && event.target.classList.contains("testUnsplash")) {
-    unsplash.search
-      .photos("dogs", 1)
-      .then(toJson)
-      .then(json => {
-        renderSearch(json, elGallery);
-      });
-  }
 });
 
 /*eslint-disable */
@@ -58,16 +42,27 @@ elHeader.addEventListener("keypress", ev => {
   if (!ev) ev = window.event;
   const keyCode = ev.keyCode || ev.which;
 
-  if (keyCode == "13") {
-    unsplash.search
-      .photos(ev.target.value, 1, 12)
-      .then(toJson)
-      .then(json => {
-        renderSearch(json, elGallery);
-      });
+  if (ev.target.value.length > 2) {
+    if (keyCode == "13") {
+      unsplash.search
+        .photos(ev.target.value, 1, 12)
+        .then(toJson)
+        .then(json => {
+          renderSearch(json, elGallery);
+        });
+    }
   }
+  return false;
 });
 /* eslint-enable */
+
+elHeader.addEventListener("focusout", event => {
+  const ev = event;
+  if (event.target && event.target.tagName === "INPUT") {
+    ev.target.value = "";
+  }
+  return false;
+});
 
 elGallery.addEventListener("click", event => {
   if (event.target && event.target.tagName === "BUTTON") {

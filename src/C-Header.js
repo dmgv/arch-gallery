@@ -32,7 +32,7 @@ export default function renderHeader(user, element) {
     </div>
     <div class="slider__02">
       <p class="search-text">Search Unsplash</p>
-      <input type="text" placeholder="Digite alguma coisa" class="top-search" />
+      <input type="text" placeholder="Aperte enter" class="top-search" />
     </div>
   </div>
 
