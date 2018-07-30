@@ -1,6 +1,6 @@
-import { toJson } from "unsplash-js";
+// import { toJson } from "unsplash-js";
 import { firebase, googleAuthProvider } from "./firebase";
-import unsplash from "./unsplash";
+// import unsplash from "./unsplash";
 import renderAuth from "./C-Auth";
 import renderHeader from "./C-Header";
 // import renderGallery from "./C-Gallery";
@@ -43,14 +43,15 @@ elHeader.addEventListener("keypress", ev => {
   if (!ev) ev = window.event;
   const keyCode = ev.keyCode || ev.which;
 
-  if (ev.target.value.length > 2) {
+  if (ev.target.value.length > 1) {
     if (keyCode == "13") {
-      unsplash.search
-        .photos(ev.target.value, 1, 12)
-        .then(toJson)
-        .then(json => {
-          renderSearch(json, elGallery);
-        });
+      renderSearch(ev.target.value, elGallery);
+      // unsplash.search
+      //   .photos(ev.target.value, 1, 12)
+      //   .then(toJson)
+      //   .then(json => {
+      //     renderSearch(json, elGallery);
+      //   });
     }
   }
   return false;

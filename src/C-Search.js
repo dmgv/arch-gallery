@@ -1,3 +1,6 @@
+import { toJson } from "unsplash-js";
+import unsplash from "./unsplash";
+
 function generateHTML(id) {
   const photoId = id;
   return `
@@ -10,13 +13,18 @@ function generateHTML(id) {
   `;
 }
 
-export default function renderSearch(data, element) {
+export default function renderSearch(searchTerm, element) {
   const el = element;
-  const imgList = data;
   const newArr = [];
 
-  imgList.results.map(photos => newArr.push(photos.id));
-
-  const markup = newArr.map(generateHTML).join("");
-  el.innerHTML = markup;
+  unsplash.search
+    .photos(searchTerm, 1, 12)
+    .then(toJson)
+    .then(json => {
+      json.results.map(photos => newArr.push(photos.id));
+    })
+    .then(() => {
+      const markup = newArr.map(generateHTML).join("");
+      el.innerHTML = markup;
+    });
 }
