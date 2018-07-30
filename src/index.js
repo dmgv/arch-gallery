@@ -7,7 +7,7 @@ import renderNav from "./C-Nav";
 import renderSearch from "./C-Search";
 import renderSelected from "./C-SelectedAlbum";
 import createAlbum from "./create-album";
-import fire from "./fire";
+// import fire from "./fire";
 
 // Unsplash
 const unsplash = new Unsplash({
@@ -95,10 +95,8 @@ elNav.addEventListener("click", event => {
 btnCreateAlbum.addEventListener("click", () => {
   if (inpCreateAlbum.value) {
     const { uid } = firebase.auth().currentUser;
-
     createAlbum(uid, inpCreateAlbum.value);
     createAlbumPop.classList.remove("open");
-    renderNav(uid, elNav);
     // TODO Gerar a busca no C-Search
     // renderSearch(inpCreateAlbum.value, elGallery)
   }
@@ -122,7 +120,7 @@ firebase.auth().onAuthStateChanged(user => {
     elAuth.innerHTML = "";
     elAuth.classList.add("hidden");
     renderApp(user.uid);
-    fire(user.uid);
+    // fire(user.uid);
   } else {
     renderAuth(null, elAuth);
     elAuth.classList.remove("hidden");

@@ -13,7 +13,7 @@ export default function renderNav(user, element) {
       returnArr.push(item);
     });
     const markup = `
-  <label for="menuCheckbox" class="checkbox-label side-menu-label">
+    <label for="menuCheckbox" class="checkbox-label side-menu-label">
   <svg class="svg-icon" viewBox="0 0 20 20">
     <use xlink:href="${sprite}#close"></use>
   </svg>
