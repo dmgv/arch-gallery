@@ -23,15 +23,24 @@ main
     height: 100%
     object-fit: cover
   .item__overlay
-    background: red
     grid-column: 1 / -1
     grid-row: 1 / -1
     background: rgba(0,0,0,0.7)
-    position: relative;
+    position: relative
     display: grid
     justify-items: center
     align-items: center
     transform: translateY(100%)
+  .added:after
+    display: grid
+    grid-column: 1 / -1
+    grid-row: 1 / -1
+    content: "Adicionado"
+    background: rgba(0,0,0,0.8)
+    color: white
+    justify-items: center
+    align-items: center
+
   .item__overlay button
     background: none
     border: 2px solid white
@@ -40,11 +49,9 @@ main
     background: rgba(0,0,0,0.4)
     padding: 5px
     margin: 0
-  .item:hover .item__overlay
+  .item:hover:not(.added) .item__overlay
     transform: translateY(0)
 
-    // box-shadow: 0px 8px 25px -5px rgba(0,0,0,0.6)
-  a
 
   a:hover
     transform: scale(1.05)

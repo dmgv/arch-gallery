@@ -116,10 +116,11 @@ elGallery.addEventListener("click", event => {
   }
   // * Botão de adicionar foto ao album -> chama a funcção
   if (event.target && event.target.classList.contains("addToAlbum")) {
+    const divItem = event.target.parentNode.parentNode;
     const photoId = event.target.parentNode.parentNode
       .querySelector("img")
       .getAttribute("data-photoId");
-    addPhoto(photoId);
+    addPhoto(photoId, divItem);
   }
 });
 
@@ -175,11 +176,11 @@ document.appState.watch("albumName", newState => {
 });
 
 document.appState.watch("uid", newState => {
-  console.log("O valor de uid é:", newState);
+  console.log("O valor do uid é:", newState);
 });
 
 document.appState.watch("albumId", newState => {
-  console.log("O valor de album é:", newState);
+  console.log("O id do album é:", newState);
 });
 
 document.appState.watch("albumPhotos", newState => {
