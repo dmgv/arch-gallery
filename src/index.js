@@ -1,31 +1,62 @@
-// import { toJson } from "unsplash-js";
 import { firebase, googleAuthProvider } from "./firebase";
-// import unsplash from "./unsplash";
+import createStore from "./simple.store";
 import renderAuth from "./C-Auth";
 import renderHeader from "./C-Header";
-// import renderGallery from "./C-Gallery";
 import renderNav from "./C-Nav";
 import renderSearch from "./C-Search";
 import renderSelected from "./C-SelectedAlbum";
 import createAlbum from "./create-album";
+// import albumAtivo from "./album-ativo";
+import addPhoto from "./add-photo";
+// import unsplash from "./unsplash";
 // import fire from "./fire";
+// import { toJson } from "unsplash-js";
+// import renderGallery from "./C-Gallery";
+//
 
-// Get page elements
+/**
+|--------------------------------------------------
+| State Maneger
+|--------------------------------------------------
+*/
+
+const myState = createStore();
+// * Can be access thoroughout the entire aplication
+document.appState = myState;
+
+/**
+|--------------------------------------------------
+| Get DOM nodes
+|--------------------------------------------------
+*/
+
+// * Main components
 const elAuth = document.querySelector("#auth");
 const elHeader = document.querySelector("header");
 const elNav = document.querySelector("nav");
 const elGallery = document.querySelector("main");
+// * Gallery and lightbox
 const overlay = document.querySelector(".overlay");
 const overlayImage = overlay.querySelector("img");
 const overlayClose = overlay.querySelector(".close");
+// * App actions
 const btnCreateAlbum = document.querySelector(".btnCreateAlbum");
 const inpCreateAlbum = document.querySelector(".create-album input");
 const btnCloseCreateAlbum = document.querySelector(".btnCloseCreateAlbum");
 const createAlbumPop = document.querySelector(".create-album");
+// * Miscellaneous
 const menuCheck = document.getElementById("menuCheckbox");
-
 overlayClose.addEventListener("click", () => overlay.classList.remove("open"));
 
+/**
+|--------------------------------------------------
+| Event Delegators
+|--------------------------------------------------
+*/
+
+// *
+// * Auth - Login and Logout
+// *
 elAuth.addEventListener("click", event => {
   if (event.target && event.target.classList.contains("signInWithGoogle")) {
     firebase.auth().signInWithPopup(googleAuthProvider);
@@ -38,25 +69,32 @@ elHeader.addEventListener("click", event => {
   }
 });
 
-/*eslint-disable */
-elHeader.addEventListener("keypress", ev => {
+// *
+// * Search
+// *
+elHeader.addEventListener("keypress", event => {
+  let ev = event;
   if (!ev) ev = window.event;
   const keyCode = ev.keyCode || ev.which;
 
   if (ev.target.value.length > 1) {
+    /* eslint-disable eqeqeq */
     if (keyCode == "13") {
-      renderSearch(ev.target.value, elGallery);
-      // unsplash.search
-      //   .photos(ev.target.value, 1, 12)
-      //   .then(toJson)
-      //   .then(json => {
-      //     renderSearch(json, elGallery);
-      //   });
-    }
+      if (document.appState.get("albumName")) {
+        renderSearch(ev.target.value, null, elGallery);
+      } else {
+        document.querySelector(".top-search").value =
+          "Selecione um album antes";
+        document.querySelector(".top-search").style = "color:#BF373B";
+        setTimeout(() => {
+          document.querySelector(".top-search").value = "";
+          document.querySelector(".top-search").style = "color:#2b2b2b";
+        }, 900);
+      }
+    } /* eslint-enable eqeqeq */
   }
   return false;
 });
-/* eslint-enable */
 
 elHeader.addEventListener("focusout", event => {
   const ev = event;
@@ -66,56 +104,107 @@ elHeader.addEventListener("focusout", event => {
   return false;
 });
 
+// *
+// * Gallery
+// *
 elGallery.addEventListener("click", event => {
-  if (event.target && event.target.tagName === "BUTTON") {
+  // * Abre o "lightbox" da imagem
+  if (event.target && event.target.classList.contains("openPreview")) {
     const { src } = event.target.parentNode.parentNode.querySelector("img");
     overlayImage.src = src;
     overlay.classList.add("open");
   }
+  // * Botão de adicionar foto ao album -> chama a funcção
+  if (event.target && event.target.classList.contains("addToAlbum")) {
+    const photoId = event.target.parentNode.parentNode
+      .querySelector("img")
+      .getAttribute("data-photoId");
+    addPhoto(photoId);
+  }
 });
 
+// *
+// * Side Menu
+// *
+
+// * Renderiza a galeria escolhida
 elNav.addEventListener("click", event => {
   if (event.target && event.target.tagName === "LI") {
-    const albumId = event.target.getAttribute("data-key");
-    const user = event.target.getAttribute("data-user");
-    renderSelected(user, albumId, elGallery);
+    // ! Altera Estado: Identificador do album
+    document.appState.set("albumId", event.target.getAttribute("data-key"));
+    // ! Altera Estado: Nome do album
+    document.appState.set("albumName", event.target.innerHTML);
+    renderSelected(elGallery);
   }
+
+  // * Abre modal para criar album
   if (event.target && event.target.classList.contains("novoAlbum")) {
     createAlbumPop.classList.add("open");
     menuCheck.checked = false;
   }
 });
 
+// * Cria de fato o novo album
 btnCreateAlbum.addEventListener("click", () => {
   if (inpCreateAlbum.value) {
-    const { uid } = firebase.auth().currentUser;
-    createAlbum(uid, inpCreateAlbum.value);
+    createAlbum(inpCreateAlbum.value);
     createAlbumPop.classList.remove("open");
-    renderSearch(inpCreateAlbum.value, elGallery);
     inpCreateAlbum.value = "";
   }
 });
 
+// * Feacga modal para cria no album
 btnCloseCreateAlbum.addEventListener("click", () => {
   menuCheck.checked = true;
   createAlbumPop.classList.remove("open");
 });
 
-//
-function renderApp(user) {
-  renderHeader(user, elHeader);
-  renderNav(user, elNav);
+// *
+// * Iniciar a aplicação
+// *
+function renderApp() {
+  renderHeader(elHeader);
+  renderNav(elNav);
   // renderGallery(user, elGallery);
   // renderSelected(user, elGallery);
 }
 
+/* eslint-disable no-console */
+document.appState.watch("albumName", newState => {
+  document.querySelector(".slider__01 h2").innerHTML = newState;
+});
+
+document.appState.watch("uid", newState => {
+  console.log("O valor de uid é:", newState);
+});
+
+document.appState.watch("albumId", newState => {
+  console.log("O valor de album é:", newState);
+});
+
+document.appState.watch("albumPhotos", newState => {
+  console.log("O array de fotos é:", newState);
+});
+document.appState.watch("albumName", newState => {
+  console.log("O nome do album é:", newState);
+});
+/* eslint-disable no-console */
+
+/**
+|--------------------------------------------------
+| Autentica usuário no Firebase
+|--------------------------------------------------
+*/
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     elAuth.innerHTML = "";
     elAuth.classList.add("hidden");
-    renderApp(user.uid);
+    // ! Altera Estado: Identificador do usuário
+    document.appState.set("uid", user.uid);
+    renderApp();
     // fire(user.uid);
   } else {
+    // * Eliminas componentes da aplicação e mostra apenas login
     renderAuth(null, elAuth);
     elAuth.classList.remove("hidden");
     elHeader.innerHTML = "";

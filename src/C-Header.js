@@ -1,6 +1,6 @@
 import sprite from "../img/sprite.svg";
 
-export default function renderHeader(user, element) {
+export default function renderHeader(element) {
   const el = element;
   const markup = `
   <div class="top-bar">
@@ -26,8 +26,7 @@ export default function renderHeader(user, element) {
 
   <div class="box__slider">
     <div class="slider__01">
-      <h2>Album Name</h2>
-      <!-- <p>Album description</p> -->
+      <h2>← Nenhum Album Selecionado</h2>
       <button class="white-text testUnsplash">Slide Show</button>
     </div>
     <div class="slider__02">
