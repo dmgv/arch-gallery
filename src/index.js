@@ -8,6 +8,7 @@ import renderSelected from "./C-SelectedAlbum";
 import createAlbum from "./create-album";
 // import albumAtivo from "./album-ativo";
 import addPhoto from "./add-photo";
+import removePhoto from "./remove-photo";
 // import unsplash from "./unsplash";
 // import fire from "./fire";
 // import { toJson } from "unsplash-js";
@@ -122,6 +123,15 @@ elGallery.addEventListener("click", event => {
       .getAttribute("data-photoId");
     addPhoto(photoId, divItem);
   }
+
+  // * Botão de remover foto ao album -> chama a funcção
+  if (event.target && event.target.classList.contains("removeFromAlbum")) {
+    const divItem = event.target.parentNode.parentNode;
+    const photoId = event.target.parentNode.parentNode
+      .querySelector("img")
+      .getAttribute("data-photoId");
+    removePhoto(photoId, divItem);
+  }
 });
 
 // *
@@ -146,6 +156,7 @@ elNav.addEventListener("click", event => {
 });
 
 // * Cria de fato o novo album
+// TODO: Mudar evento para submit -> Irá pegar tanto o click quanto o enter
 btnCreateAlbum.addEventListener("click", () => {
   if (inpCreateAlbum.value) {
     createAlbum(inpCreateAlbum.value);

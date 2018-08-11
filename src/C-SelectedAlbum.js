@@ -4,9 +4,10 @@ function generateHTML(id) {
   const photoId = id;
   return `
   <div class="item">
-    <img src="https://source.unsplash.com/${photoId}/1600x900" alt=""/>
+    <img  data-photoId="${photoId}" src="https://source.unsplash.com/${photoId}/1600x900" alt=""/>
     <div class="item__overlay">
     <button class="openPreview">View →</button>
+    <button class="removeFromAlbum">Remove →</button>
     </div>
   </div>
   `;
