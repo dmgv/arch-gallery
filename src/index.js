@@ -1,4 +1,4 @@
-import { firebase, googleAuthProvider } from "./firebase";
+import { firebase, googleAuthProvider, database } from "./firebase";
 import createStore from "./simple.store";
 import renderAuth from "./C-Auth";
 import renderHeader from "./C-Header";
@@ -153,6 +153,22 @@ elNav.addEventListener("click", event => {
     createAlbumPop.classList.add("open");
     menuCheck.checked = false;
   }
+
+  // * Apaga album
+  if (event.target && event.target.classList.contains("deleteAlbum")) {
+    const albumId = event.target.parentNode.getAttribute("data-key");
+    const uid = document.appState.get("uid");
+    const del = database
+      .ref(`users/${uid}/albums`)
+      .child(albumId)
+      .remove()
+      .then(() => renderNav(elNav))
+      .then(() => {
+        elGallery.innerHTML = "";
+        document.appState.set("albumName", "← Nenhum Album Selecionado");
+        document.appState.set("albumName", undefined);
+      });
+  }
 });
 
 // * Cria de fato o novo album
@@ -183,7 +199,8 @@ function renderApp() {
 
 /* eslint-disable no-console */
 document.appState.watch("albumName", newState => {
-  document.querySelector(".slider__01 h2").innerHTML = newState;
+  const newName = newState.split("<");
+  document.querySelector(".slider__01 h2").innerHTML = newName[0];
 });
 
 document.appState.watch("uid", newState => {

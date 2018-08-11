@@ -27,7 +27,12 @@ export default function renderNav(element) {
     <div class="menu-content">
       <h3 class="list-header">Albums</h3>
       <ul class="options-list">
-        ${returnArr.map(it => `<li data-key=${it.key}>${it.name}</li>`)}
+        ${returnArr.map(
+          it =>
+            `<li data-key=${it.key}>${
+              it.name
+            } <button class="deleteAlbum">ⅹ</button></li>`,
+        )}
       </ul>
       <button class="novoAlbum" data-user=${uid}>Novo Album</button>
     </div>
