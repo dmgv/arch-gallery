@@ -8,20 +8,12 @@ export default function removePhoto(photoId) {
   const albumId = document.appState.get("albumId");
   const albumPhotos = document.appState.get("albumPhotos");
 
-  // console.log("Vai apagar a foto", photoId);
-
-  const newArr = albumPhotos.filter(id => {
-    if (id !== photoId) {
-      return true;
-    }
-    return false;
-  });
+  const newArr = albumPhotos.filter(id => id !== photoId);
 
   // ! Altera Estado: Identificador do album
   document.appState.set("albumPhotos", newArr);
   database
     .ref(`users/${uid}/albums/${albumId}/fotos`)
     .set(newArr)
-    // .then(() => divitem.classList.add("removed"))
     .then(renderSelected(elGallery));
 }

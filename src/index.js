@@ -158,7 +158,7 @@ elNav.addEventListener("click", event => {
   if (event.target && event.target.classList.contains("deleteAlbum")) {
     const albumId = event.target.parentNode.getAttribute("data-key");
     const uid = document.appState.get("uid");
-    const del = database
+    database
       .ref(`users/${uid}/albums`)
       .child(albumId)
       .remove()
@@ -200,7 +200,9 @@ function renderApp() {
 /* eslint-disable no-console */
 document.appState.watch("albumName", newState => {
   const newName = newState.split("<");
+  /* eslint-disable prefer-destructuring */
   document.querySelector(".slider__01 h2").innerHTML = newName[0];
+  /* eslint-enable prefer-destructuring */
 });
 
 document.appState.watch("uid", newState => {
@@ -217,7 +219,7 @@ document.appState.watch("albumPhotos", newState => {
 document.appState.watch("albumName", newState => {
   console.log("O nome do album é:", newState);
 });
-/* eslint-disable no-console */
+/* eslint-enable no-console */
 
 /**
 |--------------------------------------------------
